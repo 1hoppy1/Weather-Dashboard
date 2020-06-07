@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Weather Dashboard</title>
     <meta charset="utf-8">
@@ -16,114 +17,116 @@
         <h1>Weather Dashboard</h1>
     </nav>
 
-<!--Search Bar Section-->
+    <!--Search Bar Section-->
     <div class="container-fluid">
-    <div class="row content">
-        <div class="col-sm-3 sidenav">
-        <h3>Search for a City:</h3>
-        <ul class="nav nav-pills nav-stacked">
+        <div class="row content">
+            <div class="col-sm-3 sidenav">
+                <h3>Search for a City:</h3>
+                <ul class="nav nav-pills nav-stacked">
 
-            <form id="searchBox" class="card-body">
-                <input name="cityID" id="cityID" type="text" class="form-input-a">
-                <button id="myBtn" class="form-input-b" type="submit"><i class="fa fa-search"></i></button>
-            </form>
+                    <form id="searchBox" class="card-body">
+                        <input name="cityID" id="cityID" type="text" class="form-input-a">
+                        <button id="myBtn" class="form-input-b" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
 
-            
-<!--
+
+                    <!--
             <li class="active"><a href="#section1">Dashboard</a></li>
             <li><a href="#section2">Age</a></li>
             <li><a href="#section3">Gender</a></li>
             <li><a href="#section3">Geo</a></li>
 -->
 
-        </ul><br>
+                </ul><br>
+            </div>
+            <br>
+            <!--Search Bar Section-->
+
+
+            <div class="col-sm-9">
+                <!--Current Weather Area-->
+                <div class="well cwa">
+                    <h2 id="weather">Current Weather Span</h2>
+                    <p id="temp">Temperature: Span</p>
+                    <p id="hum">Humidity: Span</p>
+                    <p id="ws">Wind Speed: Span</p>
+
+                    <p id="uvi">UV Index: Span</p>
+
+                    <div class="weatherResponse">
+
+                    </div>
+
+                </div>
+                <!--Current Weather Area-->
+
+                <div>
+                    <h2>5 Day Forecast:</h2>
+                </div>
+
+                <!--5 Day Forecast Area-->
+                <div class="row well wellfdf">
+
+                    <div class="card border-dark mb-3" style="width: 8rem;">
+
+                        <div class="card-body border-dark">
+                            <p class="card-text">Date Span</p>
+                            <p class="card-text">Icon Span</p>
+                            <p class="card-text">Temp: Span</p>
+                            <p class="card-text">Humidity: Span</p>
+                        </div>
+                    </div>
+
+                    <div class="card border-dark mb-3" style="width: 8rem;">
+
+                        <div class="card-body border-dark">
+                            <p class="card-text">Date Span</p>
+                            <p class="card-text">Icon Span</p>
+                            <p class="card-text">Temp: Span</p>
+                            <p class="card-text">Humidity: Span</p>
+                        </div>
+                    </div>
+
+                    <div class="card border-dark mb-3" style="width: 8rem;">
+
+                        <div class="card-body border-dark">
+                            <p class="card-text">Date Span</p>
+                            <p class="card-text">Icon Span</p>
+                            <p class="card-text">Temp: Span</p>
+                            <p class="card-text">Humidity: Span</p>
+                        </div>
+                    </div>
+
+                    <div class="card border-dark mb-3" style="width: 8rem;">
+
+                        <div class="card-body border-dark">
+                            <p class="card-text">Date Span</p>
+                            <p class="card-text">Icon Span</p>
+                            <p class="card-text">Temp: Span</p>
+                            <p class="card-text">Humidity: Span</p>
+                        </div>
+                    </div>
+
+                    <div class="card border-dark mb-3" style="width: 8rem;">
+
+                        <div class="card-body border-dark">
+                            <p class="card-text">Date Span</p>
+                            <p class="card-text">Icon Span</p>
+                            <p class="card-text">Temp: Span</p>
+                            <p class="card-text">Humidity: Span</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!--5 Day Forecast Area-->
+
+            </div>
         </div>
-        <br>
-<!--Search Bar Section-->
-
-
-    <div class="col-sm-9">
-<!--Current Weather Area-->
-            <div class="well cwa">
-                <h2 id="weather">Current Weather Span</h2>
-                <p id="temp">Temperature: Span</p>
-                <p id="hum">Humidity: Span</p>
-                <p id="ws">Wind Speed: Span</p>
-
-                <p id="uvi">UV Index: Span</p>
-
-                <div class="weatherResponse">
-
-                </div>
-
-            </div>
-<!--Current Weather Area-->
-
-<div>
-    <h2>5 Day Forecast:</h2>
-</div>
-
-<!--5 Day Forecast Area-->
-        <div class="row well wellfdf">
-            
-            <div class="card border-dark mb-3" style="width: 8rem;">
-                
-                <div class="card-body border-dark">
-                  <p class="card-text">Date Span</p>
-                  <p class="card-text">Icon Span</p>
-                  <p class="card-text">Temp: Span</p>
-                  <p class="card-text">Humidity: Span</p>
-                </div>
-            </div>
-
-            <div class="card border-dark mb-3" style="width: 8rem;">
-                
-                <div class="card-body border-dark">
-                  <p class="card-text">Date Span</p>
-                  <p class="card-text">Icon Span</p>
-                  <p class="card-text">Temp: Span</p>
-                  <p class="card-text">Humidity: Span</p>
-                </div>
-            </div>
-
-            <div class="card border-dark mb-3" style="width: 8rem;">
-                
-                <div class="card-body border-dark">
-                  <p class="card-text">Date Span</p>
-                  <p class="card-text">Icon Span</p>
-                  <p class="card-text">Temp: Span</p>
-                  <p class="card-text">Humidity: Span</p>
-                </div>
-            </div>
-
-            <div class="card border-dark mb-3" style="width: 8rem;">
-                
-                <div class="card-body border-dark">
-                  <p class="card-text">Date Span</p>
-                  <p class="card-text">Icon Span</p>
-                  <p class="card-text">Temp: Span</p>
-                  <p class="card-text">Humidity: Span</p>
-                </div>
-            </div>
-
-            <div class="card border-dark mb-3" style="width: 8rem;">
-                
-                <div class="card-body border-dark">
-                  <p class="card-text">Date Span</p>
-                  <p class="card-text">Icon Span</p>
-                  <p class="card-text">Temp: Span</p>
-                  <p class="card-text">Humidity: Span</p>
-                </div>
-            </div>
-    
-        </div>
-
-
-<!--5 Day Forecast Area-->
-
     </div>
-    </div>
-    </div>
-<script src="./assets/js/script3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+    <script src="./assets/js/script3.js"></script>
 </body>
+
 </html>
