@@ -16,9 +16,6 @@
         <h1>Weather Dashboard</h1>
     </nav>
 
-
-
-
 <!--Search Bar Section-->
     <div class="container-fluid">
     <div class="row content">
@@ -26,11 +23,12 @@
         <h3>Search for a City:</h3>
         <ul class="nav nav-pills nav-stacked">
 
-            <form id="user-form" class="card-body search-area">
-                <input name="username" id="username" type="text" autofocus="true" class="form-input-a">
-                <button class="form-input-b" type="submit"><i class="fa fa-search"></i></button>
+            <form id="searchBox" class="card-body">
+                <input name="cityID" id="cityID" type="text" class="form-input-a">
+                <button id="myBtn" class="form-input-b" type="submit"><i class="fa fa-search"></i></button>
             </form>
 
+            
 <!--
             <li class="active"><a href="#section1">Dashboard</a></li>
             <li><a href="#section2">Age</a></li>
@@ -47,12 +45,16 @@
     <div class="col-sm-9">
 <!--Current Weather Area-->
             <div class="well cwa">
-                <h2>Current Weather Span</h2>
-                <p>Temperature: Span</p>
-                <p>Humidity: Span</p>
-                <p>Wind Speed: Span</p>
+                <h2 id="weather">Current Weather Span</h2>
+                <p id="temp">Temperature: Span</p>
+                <p id="hum">Humidity: Span</p>
+                <p id="ws">Wind Speed: Span</p>
 
-                <p>UV Index: Span</p>
+                <p id="uvi">UV Index: Span</p>
+
+                <div class="weatherResponse">
+
+                </div>
 
             </div>
 <!--Current Weather Area-->
@@ -119,49 +121,9 @@
 
 <!--5 Day Forecast Area-->
 
-
-<!--
-        <div class="row">
-            <div class="col-sm-4">
-            <div class="well">
-                <p>Text</p> 
-                <p>Text</p> 
-                <p>Text</p> 
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="well">
-                <p>Text</p> 
-                <p>Text</p> 
-                <p>Text</p> 
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="well">
-                <p>Text</p> 
-                <p>Text</p> 
-                <p>Text</p> 
-            </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8">
-            <div class="well">
-                <p>Text</p> 
-            </div>
-            </div>
-            <div class="col-sm-4">
-            <div class="well">
-                <p>Text</p> 
-            </div>
-            </div>
-        </div>
-        </div>
-
-
--->
     </div>
     </div>
     </div>
+<script src="./assets/js/script3.js"></script>
 </body>
 </html>
