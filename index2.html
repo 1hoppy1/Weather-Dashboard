@@ -12,31 +12,22 @@
 </head>
 
 <body>
-
+    <!--Top Banner Section-->
     <nav class="text-center">
         <h1>Weather Dashboard</h1>
     </nav>
+    <!--Top Banner Section-->
 
     <!--Search Bar Section-->
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav">
                 <h3>Search for a City:</h3>
-                <ul class="nav nav-pills nav-stacked">
-
+                <ul id="memory" class="nav nav-pills nav-stacked">
                     <form id="searchBox" class="card-body">
                         <input name="cityID" id="cityID" type="text" class="form-input-a">
                         <button id="myBtn" class="form-input-b" type="submit"><i class="fa fa-search"></i></button>
                     </form>
-
-
-                    <!--
-            <li class="active"><a href="#section1">Dashboard</a></li>
-            <li><a href="#section2">Age</a></li>
-            <li><a href="#section3">Gender</a></li>
-            <li><a href="#section3">Geo</a></li>
--->
-
                 </ul><br>
             </div>
             <br>
@@ -51,7 +42,7 @@
                     <p id="hum">Humidity: Span</p>
                     <p id="ws">Wind Speed: Span</p>
 
-                    <p id="uvi">UV Index: Span</p>
+                <span id="color"><p id="uvi">UV Index: Span</p></span>
 
                     <div class="weatherResponse">
 
@@ -65,58 +56,58 @@
                 </div>
 
                 <!--5 Day Forecast Area-->
-                <div class="row well wellfdf">
-
+                <div id="please" class="row well wellfdf">
+<!--
                     <div class="card border-dark mb-3" style="width: 8rem;">
 
-                        <div class="card-body border-dark">
-                            <p class="card-text">Date Span</p>
-                            <p class="card-text">Icon Span</p>
-                            <p class="card-text">Temp: Span</p>
-                            <p class="card-text">Humidity: Span</p>
+                        <div id="myList" class="card-body border-dark">
+                            <p id="fdate" class="card-text">Date Span</p>
+                            <p id="ficon" class="card-text">Icon Span</p>
+                            <p id="ftemp" class="card-text">Temp: Span</p>
+                            <p id="fhum" class="card-text">Humidity: Span</p>
+                        </div>
+                    </div>
+
+                 <div class="card border-dark mb-3" style="width: 8rem;">
+
+                        <div id="myList" class="card-body border-dark">
+                            <p id="fdate" class="card-text">Date Span</p>
+                            <p id="ficon" class="card-text">Icon Span</p>
+                            <p id="ftemp" class="card-text">Temp: Span</p>
+                            <p id="fhum" class="card-text">Humidity: Span</p>
                         </div>
                     </div>
 
                     <div class="card border-dark mb-3" style="width: 8rem;">
 
-                        <div class="card-body border-dark">
-                            <p class="card-text">Date Span</p>
-                            <p class="card-text">Icon Span</p>
-                            <p class="card-text">Temp: Span</p>
-                            <p class="card-text">Humidity: Span</p>
+                        <div id="myList" class="card-body border-dark">
+                            <p id="fdate" class="card-text">Date Span</p>
+                            <p id="ficon" class="card-text">Icon Span</p>
+                            <p id="ftemp" class="card-text">Temp: Span</p>
+                            <p id="fhum" class="card-text">Humidity: Span</p>
                         </div>
                     </div>
 
                     <div class="card border-dark mb-3" style="width: 8rem;">
 
-                        <div class="card-body border-dark">
-                            <p class="card-text">Date Span</p>
-                            <p class="card-text">Icon Span</p>
-                            <p class="card-text">Temp: Span</p>
-                            <p class="card-text">Humidity: Span</p>
+                        <div id="myList" class="card-body border-dark">
+                            <p id="fdate" class="card-text">Date Span</p>
+                            <p id="ficon" class="card-text">Icon Span</p>
+                            <p id="ftemp" class="card-text">Temp: Span</p>
+                            <p id="fhum" class="card-text">Humidity: Span</p>
                         </div>
                     </div>
 
                     <div class="card border-dark mb-3" style="width: 8rem;">
 
-                        <div class="card-body border-dark">
-                            <p class="card-text">Date Span</p>
-                            <p class="card-text">Icon Span</p>
-                            <p class="card-text">Temp: Span</p>
-                            <p class="card-text">Humidity: Span</p>
+                        <div id="myList" class="card-body border-dark">
+                            <p id="fdate" class="card-text">Date Span</p>
+                            <p id="ficon" class="card-text">Icon Span</p>
+                            <p id="ftemp" class="card-text">Temp: Span</p>
+                            <p id="fhum" class="card-text">Humidity: Span</p>
                         </div>
                     </div>
-
-                    <div class="card border-dark mb-3" style="width: 8rem;">
-
-                        <div class="card-body border-dark">
-                            <p class="card-text">Date Span</p>
-                            <p class="card-text">Icon Span</p>
-                            <p class="card-text">Temp: Span</p>
-                            <p class="card-text">Humidity: Span</p>
-                        </div>
-                    </div>
-
+-->   
                 </div>
 
 
