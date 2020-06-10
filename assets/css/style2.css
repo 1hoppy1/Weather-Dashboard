@@ -104,6 +104,20 @@ h2 {
     page-break-after: always;
 }
 
+.pastResults {
+    display: inline;
+    width: 80%;
+    height: 40px;
+    padding: 3%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid black;
+    border-radius: .3rem;
+    background-color: transparent;
+
+}
+
+
 /* On small screens, set height to 'auto' for the grid */
 @media screen and (max-width: 767px) {
     .row.content {height: auto;} 

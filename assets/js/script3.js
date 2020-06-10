@@ -1,20 +1,80 @@
-var getWeather = function (event,) {
+var getWeather = function (event) {
     event.preventDefault(); 
     var cityName = document.getElementById("cityID").value
 
+    if (cityName === "") {
+        alert("Please enter valid city.");
+    }
+    else{
+/*else covers whole js, almost*/
+
+    
     localStorage.setItem("location", cityName)
 
-    var searchHistory = document.createElement("button")
-    searchHistory.setAttribute("style", 'href')
+/*this clears search box after button click*/
+    document.getElementById('cityID').value = ''
     
+
+    // var list = document.getElementById("please");
+// if (list.hasChildNodes()) {
+//     list.removeChild(list.childNodes[0]);
+// }
+
+
+//  var elementExists = document.getElementById("formatthis");
+//   if (elementExists = true) {
+//   var card = document.getElementById('please');
+//   card.parentNode.removeChild(card);
+//   }
+
+
+// var formaththis = document.getElementById(formaththis)
+//     if (document.getElementById(formaththis).value = true) {
+//         document.getElementById(formaththis).removeChild;
+//     }
+    
+    
+    // function removeElement(formaththis) {
+    //     var element = document.getElementById('formatthis');
+    //     element.parentNode.removeChild(element);
+    // }
+    
+
+/*committing stuff to memory*/
+    var searchHistory = document.createElement("button")
+
+    searchHistory.setAttribute("class", "pastResults")
+    searchHistory.setAttribute("id", "pR")
+
     var element = document.getElementById("memory");
     element.appendChild(searchHistory);
 
-//     var test = document.createElement("href")
-//     test.document.getElementById("memory").innerHTML = localStorage.getItem("lastname");
-//    test.setAttribute("id", "ftemp")
-//     document.memory.appendChild(test)
+    var retrievedData = localStorage.getItem("location");
+    
+    var node = document.createTextNode(retrievedData);
 
+    var putInBox = document.getElementById("pR");    
+    putInBox.appendChild(node);
+/*committing stuff to memory*/
+    
+
+    // localStorage.setItem("location", cityName)
+
+    // var searchHistory = document.createElement("button")
+
+    // searchHistory.setAttribute("class", "pastResults")
+    // searchHistory.setAttribute("id", "pR")
+
+    // var element = document.getElementById("memory");
+    // element.appendChild(searchHistory);
+
+    // var retrievedData = localStorage.getItem("location");
+
+    
+    // var node = document.createTextNode(retrievedData);
+
+    // var putInBox = document.getElementById("pR");    
+    // putInBox.appendChild(node);
 
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=459a47d9d761867675c1905e97f5d2e2&units=imperial")
         .then(function (response) {
@@ -23,6 +83,7 @@ var getWeather = function (event,) {
                     console.log(data);
                     var city = data.name
                     var currentDate = moment(data.dt, "X").format("l")
+
 
                     var iconcode = data.weather[0].icon
                     var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -48,13 +109,13 @@ var getWeather = function (event,) {
                         }).then(function (uv) {
                             console.log(uv.value)
 
-if (uv.value <=2.9) {
+if (uv.value <=3) {
     document.getElementById('color').innerHTML = document.getElementById('color').style.backgroundColor = "green";
 }
-//  if (3 <= uv.value <= 5.9) {
-//      document.getElementById('color').innerHTML = document.getElementById('color').style.backgroundColor = "yellow";
-// }
-if (uv.value >6) {
+ if (uv.value > 3 && uv.value < 6) {
+      document.getElementById('color').innerHTML = document.getElementById('color').style.backgroundColor = "yellow";
+ }
+if (uv.value >= 6) {
     document.getElementById('color').innerHTML = document.getElementById('color').style.backgroundColor = "red";
 }
 
@@ -97,7 +158,7 @@ var node = document.createTextNode(fivedaydate + "  fivedayimg  " + "Temp:" + fi
 para.setAttribute("id", "formatthis")
 para.setAttribute("class", "card border-dark mb-3")
 para.setAttribute("style", "width: 8rem")
-//para.setAttribute("style", "textAlign: center")
+
 para.appendChild(node);
 
 var element = document.getElementById("please");
@@ -109,19 +170,23 @@ var fivedaydate = moment(fiveday.list[i].dt, "X").format("l")
 var fivedaytemp = fiveday.list[i].main.temp
 var fivedayhum = fiveday.list[i].main.humidity
 
-// this only changes the first box to the last days data.... document.getElementById("formatthis").innerHTML = fivedaydate + "  fivedayimg  " + "Temp:  " + fivedaytemp + "Hum: " + fivedayhum;
 
 
-//document.getElementById("formatthis").innerHTML = fivedaydate + "fivedayimg" + "Temp:" + fivedaytemp + "Hum: " + fivedayhum;
+var adsf = [document.getElementById("formatthis".value)]
+adsf.forEach(formaththis => {
+ //   document.getElementById("formatthis").innerHTML = fivedaydate + "  fivedayimg  " + "Temp:  " + fivedaytemp + "Hum: " + fivedayhum;
 
+ var fivedayicon = fiveday.list[i].weather[0].icon
+ var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+ var fivedayimg = "<img src = '" + iconurl + "' />"
+ document.getElementById("formatthis").innerHTML =fivedaydate + fivedayimg + "Temp:" + fiveday.list[i].main.temp +"Hum: " + fivedayhum ;
 
+});
 
-//element.appendChild(no);
-
-// var fivedayicon = fiveday.list[i].weather[0].icon
-// var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-// var fivedayimg = "<img src = '" + iconurl + "' />"
-// document.getElementById("formatthis").innerHTML =fivedaydate + fivedayimg + "Temp:" + fiveday.list[i].main.temp +"Hum: " + fivedayhum ;
+ var fivedayicon = fiveday.list[i].weather[0].icon
+ var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+ var fivedayimg = "<img src = '" + iconurl + "' />"
+ document.getElementById("formatthis").innerHTML =fivedaydate + fivedayimg + "Temp:" + fiveday.list[i].main.temp +"Hum: " + fivedayhum ;
 
 // var fivedayimg = document.createElement("img");
 // var node = document.createTextNode(fivedayimg);
@@ -131,38 +196,6 @@ var fivedayhum = fiveday.list[i].main.humidity
 
 
 
-// const please = document.getElementById("myList1");
-// const fruitList = ["banana", "orange", "mango", "lemon"];
-
-// for (let fruit of fruitList) {
-//     let newListItem = document.createElement("div");
-//     newListItem.textContent = fruit;
-
-//     please.appendChild(newListItem)
-// }
-
-
-        // var node = document.createElement("p")
-        // var textnode = document.createTextNode(fiveday.list[i].main.temp);
-        // node.appendChild(textnode);
-        // document.getElementById("ftemp").appendChild(node);
-
-        // var test = document.createElement("p")
-        // test.innerHTML = JSON.stringify(fiveday.list[i].main.temp)
-        // test.setAttribute("id", "ftemp")
-        //   document.myList1.ftemp.appendChild(test)
-
-        //  var test = document.createElement("p")
-        //   test.innerHTML = JSON.stringify(fiveday.list[i].main.temp)
-        //   test.setAttribute("id", "ftemp")
-        //     document.body.appendChild(test)
-
-
-
-
-
-
-//console.log(ftemp);
 
 
                                     }
@@ -175,5 +208,5 @@ var fivedayhum = fiveday.list[i].main.humidity
         });
 
 };
-
+}
 document.getElementById("myBtn").addEventListener("click", getWeather);
