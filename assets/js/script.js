@@ -53,7 +53,7 @@ var loadWeather = function (cityName) {
 
         loadcity()
 
-        fetch("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=459a47d9d761867675c1905e97f5d2e2&units=imperial")
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=459a47d9d761867675c1905e97f5d2e2&units=imperial")
 
             .then(function (response) {
                 response.json()
