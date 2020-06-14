@@ -1,26 +1,29 @@
 var cityName =  ""
-
 var citylist = []
 
 var loadcity = function() {
     var getlocation =  JSON.parse(localStorage.getItem("location"))
 
-    if (getlocation){
+    if (getlocation) {
         citylist = getlocation
     }
     var putInBox = document.getElementById("pR");
-
+    // This "clears out" the old buttons created for past search results
     putInBox.textContent = ""
 
+    // This pulls past searches, creates a button for each, and adds event listener
     for (let index = 0; index < citylist.length; index++) {
      
         var searchHistory = document.createElement("button")
 
         searchHistory.setAttribute("class", "pastResults")
-        searchHistory.addEventListener("click", function(){
-            cityName =citylist[index]
-            getWeather(cityName)
+        
+        searchHistory.addEventListener("click", function() {
+            cityName = citylist[index]
+            loadWeather(cityName)
         })
+        
+        //This creates search "buttons" and puts past search results in them.
         var retrievedData = citylist[index];
         searchHistory.textContent = retrievedData
         
@@ -30,18 +33,25 @@ var loadcity = function() {
 }
 loadcity()
 
-var loadWeather=function(cityName) {
+var getWeather = function(event) {
+    event.preventDefault();
+     cityName = document.getElementById("cityID").value
+     loadWeather(cityName)
+}
+
+
+
+
+var loadWeather = function(cityName) {
 
     if (cityName === "") {
         alert("Please enter valid city.");
     } else {
-        /*else covers whole js, almost*/
-
+        
         if (!citylist.includes(cityName)) {
         citylist.push(cityName)
         localStorage.setItem("location", JSON.stringify(citylist))
         }
-       
         /*this clears search box after button click*/
         document.getElementById('cityID').value = ''
 
@@ -151,12 +161,7 @@ var loadWeather=function(cityName) {
     };
 }
 
-var getWeather = function(event) {
-   event.preventDefault();
-    cityName = document.getElementById("cityID").value
-    loadWeather(cityName)
- 
-}
+
 document.getElementById("myBtn").addEventListener("click", getWeather);
 
 
