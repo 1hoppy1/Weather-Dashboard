@@ -1,8 +1,8 @@
-var cityName =  ""
+var cityName = ""
 var citylist = []
 
-var loadcity = function() {
-    var getlocation =  JSON.parse(localStorage.getItem("location"))
+var loadcity = function () {
+    var getlocation = JSON.parse(localStorage.getItem("location"))
 
     if (getlocation) {
         citylist = getlocation
@@ -13,44 +13,40 @@ var loadcity = function() {
 
     // This pulls past searches, creates a button for each, and adds event listener
     for (let index = 0; index < citylist.length; index++) {
-     
+
         var searchHistory = document.createElement("button")
 
         searchHistory.setAttribute("class", "pastResults")
-        
-        searchHistory.addEventListener("click", function() {
+
+        searchHistory.addEventListener("click", function () {
             cityName = citylist[index]
             loadWeather(cityName)
         })
-        
+
         //This creates search "buttons" and puts past search results in them.
         var retrievedData = citylist[index];
         searchHistory.textContent = retrievedData
-        
-       putInBox.appendChild(searchHistory);
 
+        putInBox.appendChild(searchHistory);
     }
 }
 loadcity()
 
-var getWeather = function(event) {
+var getWeather = function (event) {
     event.preventDefault();
-     cityName = document.getElementById("cityID").value
-     loadWeather(cityName)
+    cityName = document.getElementById("cityID").value
+    loadWeather(cityName)
 }
 
-
-
-
-var loadWeather = function(cityName) {
+var loadWeather = function (cityName) {
 
     if (cityName === "") {
         alert("Please enter valid city.");
     } else {
-        
+
         if (!citylist.includes(cityName)) {
-        citylist.push(cityName)
-        localStorage.setItem("location", JSON.stringify(citylist))
+            citylist.push(cityName)
+            localStorage.setItem("location", JSON.stringify(citylist))
         }
         /*this clears search box after button click*/
         document.getElementById('cityID').value = ''
@@ -58,8 +54,13 @@ var loadWeather = function(cityName) {
         loadcity()
 
         fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=459a47d9d761867675c1905e97f5d2e2&units=imperial")
+
             .then(function (response) {
                 response.json()
+                    // if (response.value === 404) {
+                    //     alert("Please enter a valid city name.")
+                    //     loadWeather();
+                    // }
                     .then(function (data) {
                         console.log(data);
                         var city = data.name
@@ -72,13 +73,13 @@ var loadWeather = function(cityName) {
                         innerHTML = city + " (" + currentDate + ") " + img
 
                         var temp = data.main.temp
-                        document.getElementById("temp").innerHTML = "Temperature: " + temp
+                        document.getElementById("temp").innerHTML = "Temperature: " + temp + " &degF"
 
                         var hum = data.main.humidity
-                        document.getElementById("hum").innerHTML = "Humidity: " + hum
+                        document.getElementById("hum").innerHTML = "Humidity: " + hum + "%"
 
                         var ws = data.wind.speed
-                        document.getElementById("ws").innerHTML = "Wind Speed: " + ws
+                        document.getElementById("ws").innerHTML = "Wind Speed: " + ws + " MPH"
                         var lat = data.coord.lat
                         var lon = data.coord.lon
 
@@ -115,19 +116,16 @@ var loadWeather = function(cityName) {
 
                                             var fivedaydate = moment(fiveday.list[i].dt, "X").format("l")
 
-
                                             var fivedaytemp = fiveday.list[i].main.temp
-
 
                                             var fivedayhum = fiveday.list[i].main.humidity
 
-
                                             var para = document.createElement("p");
 
-                                            var fivedaynode = document.createTextNode( fivedaydate);
+                                            var fivedaynode = document.createTextNode(fivedaydate);
 
                                             para.appendChild(fivedaynode);
-                                           
+
                                             var img = document.createElement("img")
                                             var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
                                             img.setAttribute("src", iconurl)
@@ -136,34 +134,27 @@ var loadWeather = function(cityName) {
                                             para.setAttribute("id", "formatthis")
                                             para.setAttribute("class", "card border-dark mb-3")
                                             para.setAttribute("style", "width: 8rem")
-                                            var node = document.createTextNode( "Temp:" + fivedaytemp + "Hum: " + fivedayhum);
 
-                                            para.appendChild(node);
+                                            var node1 = document.createTextNode("Temp: " + fivedaytemp + " \u00B0" + "F" + "\r\n");
 
-                                          
+                                            var node2 = document.createTextNode("Hum: " + fivedayhum + " %");
+
+                                            para.appendChild(node1);
+
+                                            para.appendChild(node2);
+
                                             element.appendChild(para);
-
-
 
                                             var fivedaydate = moment(fiveday.list[i].dt, "X").format("l")
                                             var fivedaytemp = fiveday.list[i].main.temp
                                             var fivedayhum = fiveday.list[i].main.humidity
-
                                         }
-
-
                                     }
                                 })
                             })
                     });
             });
-
     };
 }
 
-
 document.getElementById("myBtn").addEventListener("click", getWeather);
-
-
-
-
