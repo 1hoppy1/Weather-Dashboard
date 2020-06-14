@@ -18,8 +18,8 @@ body {
 /* Set gray background color and 100% height */
 
 .sidenav {
-  background-color: #f1f1f1;
-  height: 100%;
+    background-color: #f1f1f1;
+    height: 100%;
 }
 
 /* Search Bar Format*/
@@ -37,9 +37,9 @@ body {
     border: 2px solid black;
     border-radius: .3rem;
     background-color: white;
-  }
+}
 
-  .form-input-b {
+.form-input-b {
     display: inline;
     width: 15%;
     padding: 3%;
@@ -48,7 +48,7 @@ body {
     border: 2px solid black;
     border-radius: .3rem;
     background-color: blue;
-  }
+}
 
 /*Current Weather Area Formatting*/
 .cwa {
@@ -62,6 +62,7 @@ body {
 .cwa h2 {
     margin-bottom: 8%;
 }
+
 /*Current Weather Area Formatting*/
 
 
@@ -120,5 +121,7 @@ h2 {
 
 /* On small screens, set height to 'auto' for the grid */
 @media screen and (max-width: 767px) {
-    .row.content {height: auto;} 
+    .row.content {
+        height: auto;
+    }
 }
