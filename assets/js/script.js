@@ -69,7 +69,7 @@ var loadWeather = function (cityName) {
                         var currentDate = moment(data.dt, "X").format("l")
 
                         var iconcode = data.weather[0].icon
-                        var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                        var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
                         var img = "<img src = '" + iconurl + "' />"
                         document.getElementById("weather").
                         innerHTML = city + " (" + currentDate + ") " + img
@@ -85,7 +85,7 @@ var loadWeather = function (cityName) {
                         var lat = data.coord.lat
                         var lon = data.coord.lon
 
-                        fetch("http://api.openweathermap.org/data/2.5/uvi?appid=459a47d9d761867675c1905e97f5d2e2&lat=" + lat + "&lon=" + lon)
+                        fetch("https://api.openweathermap.org/data/2.5/uvi?appid=459a47d9d761867675c1905e97f5d2e2&lat=" + lat + "&lon=" + lon)
                             .then(function (response) {
                                 return response.json()
                             }).then(function (uv) {
@@ -104,7 +104,7 @@ var loadWeather = function (cityName) {
                                 var uvValue = uv.value
                                 document.getElementById("color").innerHTML = "UV Index: " + uvValue
 
-                                fetch("http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=459a47d9d761867675c1905e97f5d2e2&units=imperial").then(function (response) {
+                                fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=459a47d9d761867675c1905e97f5d2e2&units=imperial").then(function (response) {
                                     return response.json()
                                 }).then(function (fiveday) {
                                     console.log(fiveday)
@@ -129,7 +129,7 @@ var loadWeather = function (cityName) {
                                             para.appendChild(fivedaynode);
 
                                             var img = document.createElement("img")
-                                            var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+                                            var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
                                             img.setAttribute("src", iconurl)
                                             para.appendChild(img)
 
