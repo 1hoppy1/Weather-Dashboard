@@ -57,12 +57,14 @@ var loadWeather = function (cityName) {
 
             .then(function (response) {
                 response.json()
-                    // if (response.value === 404) {
-                    //     alert("Please enter a valid city name.")
-                    //     loadWeather();
-                    // }
+                    
                     .then(function (data) {
                         console.log(data);
+
+                        if (data.cod === "404") {
+                            alert("Please enter a valid city name.");                            
+                         }
+
                         var city = data.name
                         var currentDate = moment(data.dt, "X").format("l")
 
